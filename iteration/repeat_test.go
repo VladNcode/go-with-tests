@@ -1,12 +1,13 @@
 package iteration
 
 import (
+	"fmt"
 	"testing"
 )
 
 func TestRepeat(t *testing.T) {
 	t.Run("saying hello to people", func(t *testing.T) {
-		sum := Repeat("a")
+		sum := Repeat("a", 5)
 		expected := "aaaaa"
 
 		if sum != expected {
@@ -18,6 +19,11 @@ func TestRepeat(t *testing.T) {
 
 func BenchmarkRepeat(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		Repeat("a")
+		Repeat("a", 5)
 	}
+}
+
+func ExampleRepeat() {
+	fmt.Println(Repeat("a", 5))
+	// Output: "aaaaa"
 }
